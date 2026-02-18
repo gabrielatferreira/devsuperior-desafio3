@@ -20,25 +20,25 @@ public class Client {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    Long id;
+    private Long id;
 
     @NotBlank(message = "Nome é obrigatório")
     @Size(min = 2, max = 100, message = "Nome de ter no mínimo 2 e no máximo 100 carateres")
     @Pattern(regexp = "^[A-Za-zÀ-ÿ ]+$", message = "Nome deve conter apenas letras")
-    String name;
+    private String name;
 
     @CPF(message = "CPF inválido")
     @Pattern(regexp = "\\d{11}", message = "CPF deve conter 11 dígitos")
     @NotBlank(message = "CPF é obrigatório")
-    String cpf;
+    private String cpf;
 
     @NotNull(message = "Renda é obrigatória")
     @Positive(message = "Renda deve ser maior que zero")
-    Double income;
+    private Double income;
 
     @PastOrPresent(message = "Data de nascimento não pode ser uma data futura")
-    LocalDate birthDate;
+    private LocalDate birthDate;
 
     @PositiveOrZero(message = "Quantidade de filhos deve ser zero ou um número inteiro positivo")
-    Integer children;
+    private Integer children;
 }
